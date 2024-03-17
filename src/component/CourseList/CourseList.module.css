@@ -1,0 +1,101 @@
+#courses {
+    margin-top: 20px;
+}
+
+.imgContainer {
+    width: calc(1280px / 3 - 12px);
+    height: calc(1280px / 3 - 12px);
+    overflow: hidden;
+}
+
+.imgContainer img {
+    width: 100%;
+    height: 100%; /* устанавливаем высоту на 100% от родительского контейнера */
+    object-fit: cover; /* кадрируем изображение по размерам контейнера */
+}
+
+.courseContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.course {
+    width: calc(33.33% - 10px);
+    margin-bottom: 20px;
+}
+
+.course img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.courseInfo {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.selectedButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #e05555;
+    color: #e05555;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.selectedButton:hover {
+    background-color: #e05555;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.deselectedButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.deselectedButton:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #007bff;
+    color: #ffffff;
+}
