@@ -24,8 +24,21 @@ const ContactForm: React.FC<IProps> = ({selectedCourses}: IProps) => {
         setIsAutomaticMessage(false)
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleSubmit = () => {
+        if (!name) {
+            alert('Fill the name first')
+            return
+        }
+        if (!email) {
+            alert('Fill the email first')
+            return
+        }
+        if (!getMessage()) {
+            alert('Fill the message first')
+            return
+        }
+        alert(`Thanks for the contact, ${name}!\nWe will contact you by ${email}`)
+
     }
 
     const getMessage = () => {
@@ -38,11 +51,12 @@ const ContactForm: React.FC<IProps> = ({selectedCourses}: IProps) => {
     return (
         <section id="contact">
             <h2>Contact Us</h2>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <input type="text" value={name} onChange={handleNameChange} placeholder="Enter your name"/>
                 <input type="email" value={email} onChange={handleEmailChange} placeholder="Enter your email"/>
-                <textarea value={getMessage()} onChange={handleMessageChange} placeholder="Enter your message"></textarea>
-                <button type="submit">Send Message</button>
+                <textarea value={getMessage()} onChange={handleMessageChange}
+                          placeholder="Enter your message"></textarea>
+                <button type="button" onClick={handleSubmit}>Send Message</button>
             </form>
         </section>
     );
